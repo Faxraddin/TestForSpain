@@ -10,6 +10,7 @@ const Navbar = () => {
             <Link className="p-3 py-2 w-[120px] border-2 border-black rounded-[10px] " to={'/Example3'}>Example 3</Link>
             <Link className="p-3 py-2 w-[120px] border-2 border-black rounded-[10px] " to={'/Example4'}>Example 4</Link>
             <Link className="p-3 py-2 w-[120px] border-2 border-black rounded-[10px] " to={'/Example5'}>Example 5</Link>
+            <Link className="p-3 py-2 w-[120px] border-2 border-black rounded-[10px] " to={'/Example6'}>Example 6</Link>
         </div>
     </header>
   )
