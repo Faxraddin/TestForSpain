@@ -1,11 +1,11 @@
 Model Information:
-* title:	3D Premium Floorplan C10
-* source:	https://sketchfab.com/3d-models/3d-premium-floorplan-c10-a2475c32d03949479b7f68dd03a9f851
-* author:	Baezeni (https://sketchfab.com/baezeni)
+* title:	Apartment
+* source:	https://sketchfab.com/3d-models/apartment-dd87ebbf12644e75a17ca01fa894eb81
+* author:	Home Design 3D (https://sketchfab.com/homedesign3d)
 
 Model License:
-* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
-* requirements:	Author must be credited. Commercial use is allowed.
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "3D Premium Floorplan C10" (https://sketchfab.com/3d-models/3d-premium-floorplan-c10-a2475c32d03949479b7f68dd03a9f851) by Baezeni (https://sketchfab.com/baezeni) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "Apartment" (https://sketchfab.com/3d-models/apartment-dd87ebbf12644e75a17ca01fa894eb81) by Home Design 3D (https://sketchfab.com/homedesign3d) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
