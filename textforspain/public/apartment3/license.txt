@@ -1,11 +1,11 @@
 Model Information:
-* title:	Apartment plan
-* source:	https://sketchfab.com/3d-models/apartment-plan-be009d526ac2434ab9d3fe85e34525eb
-* author:	Optic_idealist (https://sketchfab.com/nandupofficial)
+* title:	apartment
+* source:	https://sketchfab.com/3d-models/apartment-09571d8cd86a4a1dac1b4e801aef3c6a
+* author:	Home Design 3D (https://sketchfab.com/homedesign3d)
 
 Model License:
-* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
-* requirements:	Author must be credited. Commercial use is allowed.
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "Apartment plan" (https://sketchfab.com/3d-models/apartment-plan-be009d526ac2434ab9d3fe85e34525eb) by Optic_idealist (https://sketchfab.com/nandupofficial) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "apartment" (https://sketchfab.com/3d-models/apartment-09571d8cd86a4a1dac1b4e801aef3c6a) by Home Design 3D (https://sketchfab.com/homedesign3d) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

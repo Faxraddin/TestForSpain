@@ -9,7 +9,7 @@ const Example5 = () => {
         <Canvas camera={{ position: [-6.119053075084781, 8.164465050167506,1.0085519544005341] }}>
             <Apartment3/>
             <OrbitControls/>
-            <ambientLight intensity={5}/>
+            <ambientLight intensity={2}/>
         </Canvas>
     </div>
   )
