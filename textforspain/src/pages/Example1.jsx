@@ -1,8 +1,9 @@
-import React from "react";
+import Spline from '@splinetool/react-spline';
 
-const Example1 = () => {
+export default function Example1() {
   return (
-    <div>Example1</div>
-  )
+    <div className='w-full py-10 h-auto'>
+        <Spline scene="https://prod.spline.design/alT7g7kfA8ZgOmdq/scene.splinecode" />
+    </div>
+  );
 }
-export default Example1
