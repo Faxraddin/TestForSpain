@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { MeshBasicMaterial } from "three";
 import { OrbitControls } from "@react-three/drei";
-import { BoxGeometry } from "three";
 
 // Draggable wall component
 function DraggableWall({ initialPosition, onDragEnd }) {
@@ -31,8 +31,8 @@ function DraggableWall({ initialPosition, onDragEnd }) {
 
   return (
     <animated.mesh ref={ref} onMouseDown={onMouseDown} position={[x, y, 0]}>
-      <Box args={[1, 2.5, 0.1]} /> {/* Adjust size as needed */}
-      <MeshPhongMaterial color="gray" />
+      <boxGeometry args={[1, 2.5, 0.1]} /> {/* Adjust size as needed */}
+      <MeshBasicMaterial color="gray" />
     </animated.mesh>
   );
 }
@@ -41,33 +41,33 @@ function DraggableWall({ initialPosition, onDragEnd }) {
 function Walls({ roomWidth = 5, roomHeight = 3, wallHeight = 2.5 }) {
   return (
     <>
-      <Box // Back wall
+      <boxGeometry // Back wall
         args={[roomWidth, wallHeight, 0.1]}
         position={[roomWidth / 2, -wallHeight / 2, -roomHeight / 2]}
       >
-        <MeshPhongMaterial color="lightblue" />
-      </Box>
-      <Box // Left wall
+        <MeshBasicMaterial color="lightblue" />
+      </boxGeometry>
+      <boxGeometry // Left wall
         args={[0.1, wallHeight, roomHeight]}
         position={[-roomWidth / 2, -wallHeight / 2, 0]}
       >
-        <MeshPhongMaterial color="lightblue" />
-      </Box>
-      <Box // Right wall
+        <MeshBasicMaterial color="lightblue" />
+      </boxGeometry>
+      <boxGeometry // Right wall
         args={[0.1, wallHeight, roomHeight]}
         position={[roomWidth / 2, -wallHeight / 2, 0]}
       >
-        <MeshPhongMaterial color="lightblue" />
-      </Box>
+        <MeshBasicMaterial color="lightblue" />
+      </boxGeometry>
       {/* Draggable front wall */}
-      <Box
+      <boxGeometry
         args={[roomWidth, wallHeight, 0.1]}
         position={[0, -wallHeight / 2, roomHeight / 2]}
       >
-        <MeshPhongMaterial color="lightblue" />
+        <MeshBasicMaterial color="lightblue" />
         {/* Integrate DraggableWall here */}
         <DraggableWall initialPosition={[roomWidth / 2, roomHeight / 2]} />
-      </Box>
+      </boxGeometry>
     </>
   );
 }
