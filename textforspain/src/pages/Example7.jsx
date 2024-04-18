@@ -3,6 +3,75 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { BoxGeometry } from "three";
 
+// Draggable wall component
+function DraggableWall({ initialPosition, onDragEnd }) {
+  const ref = useRef(null);
+  const [{ x, y }, set] = useSpring({ x: initialPosition[0], y: initialPosition[1] });
+
+  const onMouseDown = (event) => {
+    const initialX = event.clientX;
+    const initialY = event.clientY;
+
+    const onMouseMove = (moveEvent) => {
+      const deltaX = moveEvent.clientX - initialX;
+      // Constrain movement to prevent walls from going outside the room (optional)
+      const newX = Math.max(0, Math.min(initialPosition[0] + deltaX, 10)); // Assuming room width is 10
+      set({ x: newX });
+    };
+
+    const onMouseUp = () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+      onDragEnd && onDragEnd([newX, y.value]); // Call drag end callback
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+  };
+
+  return (
+    <animated.mesh ref={ref} onMouseDown={onMouseDown} position={[x, y, 0]}>
+      <Box args={[1, 2.5, 0.1]} /> {/* Adjust size as needed */}
+      <MeshPhongMaterial color="gray" />
+    </animated.mesh>
+  );
+}
+
+// Walls with pre-defined positions (replace with your layout)
+function Walls({ roomWidth = 5, roomHeight = 3, wallHeight = 2.5 }) {
+  return (
+    <>
+      <Box // Back wall
+        args={[roomWidth, wallHeight, 0.1]}
+        position={[roomWidth / 2, -wallHeight / 2, -roomHeight / 2]}
+      >
+        <MeshPhongMaterial color="lightblue" />
+      </Box>
+      <Box // Left wall
+        args={[0.1, wallHeight, roomHeight]}
+        position={[-roomWidth / 2, -wallHeight / 2, 0]}
+      >
+        <MeshPhongMaterial color="lightblue" />
+      </Box>
+      <Box // Right wall
+        args={[0.1, wallHeight, roomHeight]}
+        position={[roomWidth / 2, -wallHeight / 2, 0]}
+      >
+        <MeshPhongMaterial color="lightblue" />
+      </Box>
+      {/* Draggable front wall */}
+      <Box
+        args={[roomWidth, wallHeight, 0.1]}
+        position={[0, -wallHeight / 2, roomHeight / 2]}
+      >
+        <MeshPhongMaterial color="lightblue" />
+        {/* Integrate DraggableWall here */}
+        <DraggableWall initialPosition={[roomWidth / 2, roomHeight / 2]} />
+      </Box>
+    </>
+  );
+}
+
 const Example7 = () => {
   const [width, setWidth] = useState(1);
   const [height, setHeight] = useState(1);
