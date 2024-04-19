@@ -111,32 +111,32 @@ const Example7 = () => {
 
         <mesh>
           <primitive object={triangle1Geometry} />
-          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={1} side={THREE.DoubleSide} />
         </mesh>
 
         <mesh>
           <primitive object={triangle2Geometry} />
-          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={1} side={THREE.DoubleSide} />
         </mesh>
 
         <mesh>
           <primitive object={triangle3Geometry} />
-          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={1} side={THREE.DoubleSide} />
         </mesh>
 
         <mesh>
           <primitive object={triangle4Geometry} />
-          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={1} side={THREE.DoubleSide} />
         </mesh>
 
         <mesh>
           <primitive object={triangle5Geometry} />
-          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={1} side={THREE.DoubleSide} />
         </mesh>
 
         <mesh>
           <primitive object={triangle6Geometry} />
-          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={1} side={THREE.DoubleSide} />
         </mesh>
 
         {vectors.map((vector, index) => (
