@@ -1,20 +1,20 @@
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Vector3, BufferGeometry, BufferAttribute } from "three";
 import * as THREE from 'three'
 
 const Example7 = () => {
-  const vectors = [
-    new Vector3(2, 1, 3),
-    new Vector3(2, 2, 3),
-    new Vector3(2, 2, 4),
-    new Vector3(2, 2, 5),
-    new Vector3(2, 1, 5),
-    new Vector3(2, 0, 5),
-    new Vector3(2, 0, 4),
-    new Vector3(2, 0, 3)
-  ];
+  const [vectors, setVectors] = useState([
+    { x: 2, y: 1, z: 3 },
+    { x: 2, y: 2, z: 3 },
+    { x: 2, y: 2, z: 4 },
+    { x: 2, y: 2, z: 5 },
+    { x: 2, y: 1, z: 5 },
+    { x: 2, y: 0, z: 5 },
+    { x: 2, y: 0, z: 4 },
+    { x: 2, y: 0, z: 3 }
+  ]);
 
   const lineRef = useRef();
 
@@ -98,8 +98,40 @@ const Example7 = () => {
   const triangle6Geometry = new BufferGeometry();
   triangle6Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle6Vertices), 3));
 
+  const handleInputChange = (event, index, axis) => {
+    const value = parseFloat(event.target.value);
+    const updatedPositions = [...vectors];
+    updatedPositions[index][axis] = value;
+    setVectors(updatedPositions);
+  };
+
   return (
     <div className="relative top-100 h-screen w-full">
+      {vectors.map((vector, index) => (
+        <div key={index} className="border m-4">
+          <label htmlFor={`vectorX${index}`}>Vector {index + 1} X:</label>
+          <input
+            type="number"
+            id={`vectorX${index}`}
+            value={vector.x}
+            onChange={(event) => handleInputChange(event, index, 'x')}
+          />
+          <label htmlFor={`vectorY${index}`}>Vector {index + 1} Y:</label>
+          <input
+            type="number"
+            id={`vectorY${index}`}
+            value={vector.y}
+            onChange={(event) => handleInputChange(event, index, 'y')}
+          />
+          <label htmlFor={`vectorZ${index}`}>Vector {index + 1} Z:</label>
+          <input
+            type="number"
+            id={`vectorZ${index}`}
+            value={vector.z}
+            onChange={(event) => handleInputChange(event, index, 'z')}
+          />
+        </div>
+      ))}
       <Canvas>
         <ambientLight intensity={0.5} />
         <OrbitControls />
@@ -140,7 +172,7 @@ const Example7 = () => {
         </mesh>
 
         {vectors.map((vector, index) => (
-          <mesh key={index} position={vector}>
+          <mesh key={index} position={new Vector3(vector.x, vector.y, vector.z)}>
             <boxGeometry args={[0.2, 0.2, 0.2]} />
             <meshStandardMaterial color="gray" />
           </mesh>
