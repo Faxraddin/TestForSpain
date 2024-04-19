@@ -40,27 +40,36 @@ const Example7 = () => {
   const calculateTriangleVertices = () => {
     const triangle1Vertices = [
       vectors[1].x, vectors[1].y, vectors[1].z,
-      vectors[7].x, vectors[7].y, vectors[7].z,
-      vectors[3].x, vectors[3].y, vectors[3].z
+      vectors[2].x, vectors[2].y, vectors[2].z,
+      vectors[0].x, vectors[0].y, vectors[0].z,
     ];
     const triangle2Vertices = [
       vectors[7].x, vectors[7].y, vectors[7].z,
-      vectors[3].x, vectors[3].y, vectors[3].z,
-      vectors[5].x, vectors[5].y, vectors[5].z
+      vectors[2].x, vectors[2].y, vectors[2].z,
+      vectors[0].x, vectors[0].y, vectors[0].z
+    ];
+    const triangle3Vertices = [
+      vectors[7].x, vectors[7].y, vectors[7].z,
+      vectors[2].x, vectors[2].y, vectors[2].z,
+      vectors[6].x, vectors[6].y, vectors[6].z
     ];
     return {
       triangle1Vertices,
-      triangle2Vertices
+      triangle2Vertices,
+      triangle3Vertices
     };
   };
 
-  const { triangle1Vertices, triangle2Vertices } = calculateTriangleVertices();
+  const { triangle1Vertices, triangle2Vertices,triangle3Vertices } = calculateTriangleVertices();
 
   const triangle1Geometry = new BufferGeometry();
   triangle1Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle1Vertices), 3));
 
   const triangle2Geometry = new BufferGeometry();
   triangle2Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle2Vertices), 3));
+
+  const triangle3Geometry = new BufferGeometry();
+  triangle3Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle3Vertices), 3));
 
   return (
     <div className="relative top-100 h-screen w-full">
@@ -80,7 +89,12 @@ const Example7 = () => {
 
         <mesh>
           <primitive object={triangle2Geometry} />
-          <meshBasicMaterial attach="material" color="yellow" transparent opacity={0.5} side={THREE.DoubleSide} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+        </mesh>
+
+        <mesh>
+          <primitive object={triangle3Geometry} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
         </mesh>
 
         {vectors.map((vector, index) => (
