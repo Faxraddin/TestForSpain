@@ -53,14 +53,32 @@ const Example7 = () => {
       vectors[2].x, vectors[2].y, vectors[2].z,
       vectors[6].x, vectors[6].y, vectors[6].z
     ];
+    const triangle4Vertices = [
+      vectors[2].x, vectors[2].y, vectors[2].z,
+      vectors[3].x, vectors[3].y, vectors[3].z,
+      vectors[4].x, vectors[4].y, vectors[4].z
+    ];
+    const triangle5Vertices = [
+      vectors[2].x, vectors[2].y, vectors[2].z,
+      vectors[4].x, vectors[4].y, vectors[4].z,
+      vectors[6].x, vectors[6].y, vectors[6].z
+    ];
+    const triangle6Vertices = [
+      vectors[5].x, vectors[5].y, vectors[5].z,
+      vectors[4].x, vectors[4].y, vectors[4].z,
+      vectors[6].x, vectors[6].y, vectors[6].z
+    ];
     return {
       triangle1Vertices,
       triangle2Vertices,
-      triangle3Vertices
+      triangle3Vertices,
+      triangle4Vertices,
+      triangle5Vertices,
+      triangle6Vertices
     };
   };
 
-  const { triangle1Vertices, triangle2Vertices,triangle3Vertices } = calculateTriangleVertices();
+  const { triangle1Vertices, triangle2Vertices,triangle3Vertices,triangle4Vertices,triangle5Vertices,triangle6Vertices } = calculateTriangleVertices();
 
   const triangle1Geometry = new BufferGeometry();
   triangle1Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle1Vertices), 3));
@@ -70,6 +88,15 @@ const Example7 = () => {
 
   const triangle3Geometry = new BufferGeometry();
   triangle3Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle3Vertices), 3));
+
+  const triangle4Geometry = new BufferGeometry();
+  triangle4Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle4Vertices), 3));
+
+  const triangle5Geometry = new BufferGeometry();
+  triangle5Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle5Vertices), 3));
+
+  const triangle6Geometry = new BufferGeometry();
+  triangle6Geometry.setAttribute("position", new BufferAttribute(new Float32Array(triangle6Vertices), 3));
 
   return (
     <div className="relative top-100 h-screen w-full">
@@ -94,6 +121,21 @@ const Example7 = () => {
 
         <mesh>
           <primitive object={triangle3Geometry} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+        </mesh>
+
+        <mesh>
+          <primitive object={triangle4Geometry} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+        </mesh>
+
+        <mesh>
+          <primitive object={triangle5Geometry} />
+          <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
+        </mesh>
+
+        <mesh>
+          <primitive object={triangle6Geometry} />
           <meshBasicMaterial attach="material" color="green" transparent opacity={0.5} side={THREE.DoubleSide} />
         </mesh>
 
